@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --foreground: #ffffff;
+    /* --background: #171717; */
+    --background: black;
+
+    --minWidthColsSystem: 1180px;
+    --numOfColsSystem: 12;
+    --widthOfColsSystem: 80px;
+    --gapOfColsSystem: 20px;
+    --paddingColsSystem: 0;
+
+    --colsOfCard: span 3;
+    --pdpagegrid: span 6;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* @theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+} */
+/* 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+} */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* PC */
+@media only screen and (min-width: 1024px) {
+    :root {
+        --paddingColsSystem: 0;
+
+        --minWidthColsSystem: 1024px;
+        --numOfColsSystem: 12;
+        --widthOfColsSystem: 67px;
+        --gapOfColsSystem: 20px;
+
+        --colsOfCard: span 3;
+
+        --pdpagegrid: span 6;
+    }
+
+}
+/* TABLET / mobile */
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
+    :root {
+        --paddingColsSystem: 5px;
+
+        --minWidthColsSystem: 768px;
+
+        --numOfColsSystem: 6;
+        /* --widthOfColsSystem: 13.8%; */
+        --widthOfColsSystem: minmax(0, 1fr);
+        --gapOfColsSystem: 3vw;
+        --gapOfColsSystem: 10px;
+
+        --colsOfCard: span 2;
+
+        --pdpagegrid: span 6;
+    }
+    
+}
+/* MOBILE */
+@media only screen and (max-width: 768px) {
+    :root {
+
+        --paddingColsSystem: 5px;
+
+        --minWidthColsSystem: 100%;
+        --numOfColsSystem: 6;
+        /* --widthOfColsSystem: 13.8vw; */
+        --widthOfColsSystem: minmax(0, 1fr);
+        --gapOfColsSystem: 10px;
+
+        --colsOfCard: span 3;
+
+        --pdpagegrid: span 6;
+    }
+}
+
+.gridsys {
+    display: grid;
+    padding: var(--paddingColsSystem);
+    box-sizing: border-box;
+    min-width: var(--minWidthColsSystem);
+    grid-template-columns: repeat(
+        var(--numOfColsSystem),
+        var(--widthOfColsSystem)
+    );
+    justify-content: center ;
+    align-items: center;
+    gap: var(--gapOfColsSystem);
+    hr {
+        width: 100%;
+        grid-column: span var(--numOfColsSystem);
+    }
+    .fullcol {
+        grid-column: span var(--numOfColsSystem);
+    }
+    .card {
+        grid-column: var(--colsOfCard);
+    }
+    p:not(.bn-inline-content),
+    Link {
+        margin: 0;
+        
+    }
+    label{
+        font-weight: bold;
+    }
 }
