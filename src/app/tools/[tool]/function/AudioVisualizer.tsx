@@ -168,8 +168,6 @@ export default function AudioVisualizers() {
         };
     }, [file]);
 
-
-
     return (<>
         <h2 className='fullcol text-5xl'>Audio Visualizers</h2>
         <div className='col-span-5 flex flex-col gap-2 text-white'>

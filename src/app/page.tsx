@@ -1,6 +1,6 @@
 'use client'
 import HomeHeader from '@/components/homeHeader'
-import AudioVisualizers from './tools/function/AudioVisualizer'
+import AudioVisualizers from './tools/[tool]/function/AudioVisualizer'
 
 export default function Home() {
     
@@ -12,9 +12,6 @@ export default function Home() {
                 <h1 className='text-5xl text-bold italic whitespace-nowrap'>
                     Phạm Nguyễn Bảo Khánh
                 </h1>
-            </div>
-            <div className='flex items-center justify-center mt-8'>
-                <AudioVisualizers />
             </div>
      </div>
     );

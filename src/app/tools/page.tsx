@@ -11,6 +11,12 @@ export default function Tools (){
         >
             Audio Visualizers
         </Link>
+        <Link 
+            href="/tools/simplecalculator" 
+            className="col-span-3 border-1 rounded-lg px-3 py-2"
+        >
+            Simple Calculator
+        </Link>
         
     </div>
 }
